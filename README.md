@@ -6,6 +6,9 @@ Provides an Elasticsearch server.
 The service is listening on TCP ports 9200 and 9300 by default.
 
 ## Docker Container usage
+See the related GitHub repository [https://github.com/tsitle/dockercontainer-indexing-elasticsearch](https://github.com/tsitle/dockercontainer-indexing-elasticsearch)
+for an example startup script.
+
 The following command will start an Elasticsearch server that is listening on ports 9206 and 9306.
 
 ```
