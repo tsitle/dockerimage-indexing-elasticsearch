@@ -76,7 +76,17 @@ RUN \
 
 RUN \
 	cp /root/.bashrc . \
-	&& chown elasticsearch:elasticsearch .bashrc
+	&& chown elasticsearch:elasticsearch .bashrc \
+	|| exit 1; \
+	#
+	if [ "$CF_CPUARCH_DEB_DIST" = "arm64" ]; then \
+		/bin/echo -e "\n# X-Pack is not supported on AARCH64" >> config/elasticsearch.yml; \
+		/bin/echo "xpack.ml.enabled: false" >> config/elasticsearch.yml; \
+		# remove unsupported JVM opts in ARM64
+		mv config/jvm.options config/jvm.options.orig \
+		&& sed -e 's/\(.*UseAVX=.*\)/#\1/' config/jvm.options.orig > config/jvm.options \
+		|| exit 1; \
+	fi
 
 RUN \
 	chown elasticsearch:elasticsearch \

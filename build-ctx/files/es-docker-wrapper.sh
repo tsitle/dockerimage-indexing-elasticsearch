@@ -129,12 +129,12 @@ _dep_setOwner_recursive "." $CF_SYSUSR_ES_USER_ID $CF_SYSUSR_ES_GROUP_ID "750" "
 
 function _replaceHeapSpace_xms() {
 	# value= e.g. "-Xms512m"
-	sed -e "s/-Xms2g/$1/g" -e "s/-Xms2G/$1/g" -i'' config/jvm.options
+	sed -e "s/-Xms1g/$1/g" -e "s/-Xms2G/$1/g" -i'' config/jvm.options
 }
 
 function _replaceHeapSpace_xmx() {
 	# value= e.g. "-Xmx512m"
-	sed -e "s/-Xmx2g/$1/g" -e "s/-Xmx2G/$1/g" -i'' config/jvm.options
+	sed -e "s/-Xmx1g/$1/g" -e "s/-Xmx2G/$1/g" -i'' config/jvm.options
 }
 
 function _replaceHeapSpace() {
