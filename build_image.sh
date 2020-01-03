@@ -65,7 +65,7 @@ LVAR_DEBIAN_VERSION="10.02"
 
 LVAR_ES_VERSION="5.6.13"
 
-LVAR_IMAGE_NAME="indexing-elasticsearch-new-${LVAR_DEBIAN_DIST}"
+LVAR_IMAGE_NAME="indexing-elasticsearch-${LVAR_DEBIAN_DIST}"
 LVAR_IMAGE_VER="$LVAR_ES_VERSION"
 
 LVAR_IMG_VER_SHORT="$(echo -n "$LVAR_IMAGE_VER" | cut -f1-2 -d.)"
