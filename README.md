@@ -31,8 +31,13 @@ $ docker run \
 		indexing-elasticsearch-<ARCH>:<VERSION>
 ```
 
-Without the environment variable **ES_JAVA_OPTS** set in the command above Elasticsearch will require 2GB of RAM.  
+Without the environment variable **ES\_JAVA\_OPTS** set in the command above Elasticsearch will require 2GB of RAM.  
 When using Docker on a Mac you'll then need to increase the amount of RAM (memory)
 that Docker can use. To do so navigate to the prefences of the Docker Desktop app
 and set the memory limit to something greater than 2GB in the "Advanced" tab.  
 Otherwise Elasticsearch will crash as soon as it receives a connection.
+
+--
+
+For a complete AARCH64/ARM64 Docker Elasticsearch/Logstash/Kibana stack see
+[https://github.com/gagara/docker-elk-arm64](https://github.com/gagara/docker-elk-arm64)
