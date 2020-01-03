@@ -63,7 +63,7 @@ LVAR_DEBIAN_DIST="$(_getCpuArch debian_dist)"
 LVAR_DEBIAN_RELEASE="buster"
 LVAR_DEBIAN_VERSION="10.02"
 
-LVAR_ES_VERSION="5.6.13"
+LVAR_ES_VERSION="6.6.2"
 LVAR_ES_VER_MAJMIN="$(echo -n "$LVAR_ES_VERSION" | cut -f1-2 -d.)"
 
 LVAR_IMAGE_NAME="indexing-elasticsearch-${LVAR_DEBIAN_DIST}"

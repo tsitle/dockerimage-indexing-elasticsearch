@@ -154,4 +154,4 @@ fi
 # ----------------------------------------------------------------------
 
 echo "$VAR_MYNAME: Starting Elasticsearch..."
-sudo -u elasticsearch ./bin/es-docker $@
+sudo -u elasticsearch /usr/local/bin/docker-entrypoint.sh eswrapper $@

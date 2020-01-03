@@ -1,7 +1,6 @@
 build-ctx/cache/
-compile_df_template/mpapp/Dockerfile*
-!compile_df_template/mpapp/Dockerfile*.j2
-compile_df_template/mpapp/elasticsearch-docker/
+get_df_template/dockerfiles/
+get_es_binary_pack/elasticsearch-*
 
 # =========================
 # IDE Files
