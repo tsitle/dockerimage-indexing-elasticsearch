@@ -147,11 +147,11 @@ function _replaceHeapSpace() {
 	echo -n "$TMP_OPT2" | grep -q -e "^-Xmx" && _replaceHeapSpace_xmx "$TMP_OPT2"
 }
 
-if [ -n "$ES_JAVA_OPTS" ]; then
-	_replaceHeapSpace
-fi
+#if [ -n "$ES_JAVA_OPTS" ]; then
+#	_replaceHeapSpace
+#fi
 
 # ----------------------------------------------------------------------
 
 echo "$VAR_MYNAME: Starting Elasticsearch..."
-sudo -u elasticsearch ./bin/es-docker $@
+sudo -E -u elasticsearch ./bin/es-docker $@
