@@ -154,4 +154,4 @@ function _replaceHeapSpace() {
 # ----------------------------------------------------------------------
 
 echo "$VAR_MYNAME: Starting Elasticsearch..."
-sudo -u elasticsearch ./bin/es-docker $@
+sudo -E -u elasticsearch ./bin/es-docker $@
