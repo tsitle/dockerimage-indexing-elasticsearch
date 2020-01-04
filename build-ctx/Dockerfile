@@ -82,8 +82,8 @@ RUN \
 	&& chown elasticsearch:elasticsearch .bashrc \
 	|| exit 1; \
 	#
-	if [ "$CF_CPUARCH_DEB_DIST" = "arm64" ]; then \
-		/bin/echo -e "\n# X-Pack is not supported on AARCH64" >> config/elasticsearch.yml; \
+	if [ "$CF_CPUARCH_DEB_DIST" != "amd64" ]; then \
+		/bin/echo -e "\n# X-Pack is not supported on AARCH64/ARMV7L/X86" >> config/elasticsearch.yml; \
 		/bin/echo "xpack.ml.enabled: false" >> config/elasticsearch.yml; \
 	fi
 
