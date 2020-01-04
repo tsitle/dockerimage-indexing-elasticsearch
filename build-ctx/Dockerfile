@@ -53,10 +53,11 @@ RUN \
 	cp /root/.bashrc . \
 	&& chown elasticsearch:elasticsearch .bashrc
 
-RUN chown elasticsearch:elasticsearch \
-      config/elasticsearch.yml \
-      bin/es-docker && \
-    chmod 0750 bin/es-docker
+RUN \
+	chown elasticsearch:elasticsearch \
+			config/elasticsearch.yml \
+			bin/es-docker \
+	&& chmod 0750 bin/es-docker
 
 COPY files/es-docker-wrapper.sh bin/
 RUN chmod 0750 bin/es-docker-wrapper.sh
