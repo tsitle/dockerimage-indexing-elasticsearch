@@ -1,4 +1,4 @@
-# Elasticsearch Docker Image for AMD64 and AARCH64
+# Elasticsearch Docker Image for AARCH64, ARMv7l, X86 and X64
 
 Provides an Elasticsearch server.
 
