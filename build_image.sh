@@ -64,11 +64,10 @@ LVAR_DEBIAN_RELEASE="buster"
 LVAR_DEBIAN_VERSION="10.02"
 
 LVAR_ES_VERSION="5.6.13"
-LVAR_ES_VER_MAJMIN="$(echo -n "$LVAR_ES_VERSION" | cut -f1-2 -d.)"
 
 LVAR_IMAGE_NAME="indexing-elasticsearch-${LVAR_DEBIAN_DIST}"
-LVAR_IMAGE_VER="$LVAR_ES_VER_MAJMIN"
-
+LVAR_IMAGE_VERSION="$LVAR_ES_VERSION"
+LVAR_IMAGE_VER_MAJMIN="$(echo -n "$LVAR_IMAGE_VERSION" | cut -f1-2 -d.)"
 
 # ----------------------------------------------------------
 
@@ -79,5 +78,13 @@ docker build \
 		--build-arg CF_DEBIAN_RELEASE="$LVAR_DEBIAN_RELEASE" \
 		--build-arg CF_DEBIAN_VERSION="$LVAR_DEBIAN_VERSION" \
 		--build-arg CF_ES_VERSION="$LVAR_ES_VERSION" \
-		-t "$LVAR_IMAGE_NAME":"$LVAR_IMAGE_VER" \
-		.
+		-t "$LVAR_IMAGE_NAME":"$LVAR_IMAGE_VERSION" \
+		. || exit 1
+
+if [ "$LVAR_IMAGE_VERSION" != "$LVAR_IMAGE_VER_MAJMIN" ]; then
+	docker image tag \
+			"$LVAR_IMAGE_NAME":"$LVAR_IMAGE_VERSION" \
+			"$LVAR_IMAGE_NAME":"$LVAR_IMAGE_VER_MAJMIN" || exit 1
+fi
+
+exit 0
