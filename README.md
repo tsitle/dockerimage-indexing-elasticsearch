@@ -1,4 +1,4 @@
-# Elasticsearch Docker Image for AMD64 and AARCH64
+# Elasticsearch Docker Image for AARCH64, ARMv7l, X86 and X64
 
 Provides an Elasticsearch server.
 
@@ -6,6 +6,9 @@ Provides an Elasticsearch server.
 The service is listening on TCP ports 9200 and 9300 by default.
 
 ## Docker Container usage
+See the related GitHub repository [https://github.com/tsitle/dockercontainer-indexing-elasticsearch](https://github.com/tsitle/dockercontainer-indexing-elasticsearch)
+for an example startup script.
+
 The following command will start an Elasticsearch server that is listening on ports 9206 and 9306.
 
 ```
@@ -15,8 +18,6 @@ $ docker run \
 		-v "$(pwd)/mpdata/es":"/usr/share/elasticsearch/data" \
 		-p "9206:9200" \
 		-p "9306:9300" \
-		-e "xpack.security.enabled=false" \
-		-e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
 		-e "discovery.type=single-node" \
 		-e "http.cors.enabled=true" \
 		-e "http.cors.allow-origin=/.*/" \
@@ -28,8 +29,7 @@ $ docker run \
 		indexing-elasticsearch-<ARCH>:<VERSION>
 ```
 
-Without the environment variable **ES_JAVA_OPTS** set in the command above Elasticsearch will require 2GB of RAM.  
-When using Docker on a Mac you'll then need to increase the amount of RAM (memory)
-that Docker can use. To do so navigate to the prefences of the Docker Desktop app
-and set the memory limit to something greater than 2GB in the "Advanced" tab.  
-Otherwise Elasticsearch will crash as soon as it receives a connection.
+--
+
+For a complete AARCH64/ARM64 Docker Elasticsearch/Logstash/Kibana stack see
+[https://github.com/gagara/docker-elk-arm64](https://github.com/gagara/docker-elk-arm64)
