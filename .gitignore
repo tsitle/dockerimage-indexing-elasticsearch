@@ -11,6 +11,8 @@ compile_df_template/mpapp/elasticsearch-docker/
 nbproject/
 # IntelliJ IDEA:
 .idea/
+# Visual Studio Code:
+.vscode/
 
 # =========================
 # Operating System Files
