@@ -10,6 +10,8 @@ get_es_binary_pack/elasticsearch-*
 nbproject/
 # IntelliJ IDEA:
 .idea/
+# Visual Studio Code:
+.vscode/
 
 # =========================
 # Operating System Files
