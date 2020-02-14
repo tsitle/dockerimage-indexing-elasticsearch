@@ -85,12 +85,14 @@ RUN \
 		/bin/echo "xpack.ml.enabled: false" >> config/elasticsearch.yml; \
 	fi
 
-RUN chown elasticsearch:elasticsearch \
-      config/elasticsearch.yml \
-      config/log4j2.properties \
-      config/x-pack/log4j2.properties \
-      bin/es-docker && \
-    chmod 0750 bin/es-docker
+RUN \
+	chown elasticsearch:elasticsearch \
+			config/elasticsearch.yml \
+			config/log4j2.properties \
+			config/x-pack/log4j2.properties \
+			bin/es-docker \
+	&& chmod 0750 \
+			bin/es-docker
 
 COPY files/es-docker-wrapper.sh bin/
 RUN chmod 0750 bin/es-docker-wrapper.sh
